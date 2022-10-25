@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nari.dataquery.mapper.ObisCimMappingConfigMapper">
+  <resultMap id="BaseResultMap" type="com.nari.dataquery.entity.ObisCimMappingConfig">
+    <result column="PROT_ITEM_NO" jdbcType="VARCHAR" property="protItemNo" />
+    <result column="PROTOCOL_NO" jdbcType="VARCHAR" property="protocolNo" />
+    <result column="PROT_ITEM_NAME" jdbcType="VARCHAR" property="protItemName" />
+    <result column="CLEAR_PROT_NO" jdbcType="VARCHAR" property="clearProtNo" />
+    <result column="OBIS" jdbcType="VARCHAR" property="obis" />
+    <result column="CIM_CODE" jdbcType="VARCHAR" property="cimCode" />
+    <result column="COL_NAME" jdbcType="VARCHAR" property="colName" />
+    <result column="TABLE_NAME" jdbcType="VARCHAR" property="tableName" />
+    <result column="DATA_PROFILE" jdbcType="VARCHAR" property="dataProfile" />
+    <result column="IS_VALID" jdbcType="VARCHAR" property="isValid" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="MULTIPLIER" jdbcType="NUMERIC" property="multiplier" />
+  </resultMap>
+  <insert id="insert" parameterType="com.nari.dataquery.entity.ObisCimMappingConfig">
+    insert into B_COMM_OBIS_CIM_MAPPING (PROT_ITEM_NO, PROTOCOL_NO, PROT_ITEM_NAME, 
+      CLEAR_PROT_NO, OBIS, CIM_CODE, 
+      COL_NAME, TABLE_NAME, DATA_PROFILE, 
+      IS_VALID, UPDATE_TIME, MULTIPLIER
+      )
+    values (#{protItemNo,jdbcType=VARCHAR}, #{protocolNo,jdbcType=VARCHAR}, #{protItemName,jdbcType=VARCHAR}, 
+      #{clearProtNo,jdbcType=VARCHAR}, #{obis,jdbcType=VARCHAR}, #{cimCode,jdbcType=VARCHAR}, 
+      #{colName,jdbcType=VARCHAR}, #{tableName,jdbcType=VARCHAR}, #{dataProfile,jdbcType=VARCHAR}, 
+      #{isValid,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{multiplier,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.nari.dataquery.entity.ObisCimMappingConfig">
+    insert into B_COMM_OBIS_CIM_MAPPING
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="protItemNo != null">
+        PROT_ITEM_NO,
+      </if>
+      <if test="protocolNo != null">
+        PROTOCOL_NO,
+      </if>
+      <if test="protItemName != null">
+        PROT_ITEM_NAME,
+      </if>
+      <if test="clearProtNo != null">
+        CLEAR_PROT_NO,
+      </if>
+      <if test="obis != null">
+        OBIS,
+      </if>
+      <if test="cimCode != null">
+        CIM_CODE,
+      </if>
+      <if test="colName != null">
+        COL_NAME,
+      </if>
+      <if test="tableName != null">
+        TABLE_NAME,
+      </if>
+      <if test="dataProfile != null">
+        DATA_PROFILE,
+      </if>
+      <if test="isValid != null">
+        IS_VALID,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="multiplier != null">
+        MULTIPLIER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="protItemNo != null">
+        #{protItemNo,jdbcType=VARCHAR},
+      </if>
+      <if test="protocolNo != null">
+        #{protocolNo,jdbcType=VARCHAR},
+      </if>
+      <if test="protItemName != null">
+        #{protItemName,jdbcType=VARCHAR},
+      </if>
+      <if test="clearProtNo != null">
+        #{clearProtNo,jdbcType=VARCHAR},
+      </if>
+      <if test="obis != null">
+        #{obis,jdbcType=VARCHAR},
+      </if>
+      <if test="cimCode != null">
+        #{cimCode,jdbcType=VARCHAR},
+      </if>
+      <if test="colName != null">
+        #{colName,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null">
+        #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="dataProfile != null">
+        #{dataProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="isValid != null">
+        #{isValid,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="multiplier != null">
+        #{multiplier,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+</mapper>

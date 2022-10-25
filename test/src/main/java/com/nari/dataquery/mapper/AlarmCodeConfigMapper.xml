@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nari.dataquery.mapper.AlarmCodeConfigMapper">
+  <resultMap id="BaseResultMap" type="com.nari.dataquery.entity.AlarmCodeConfig">
+    <result column="EVENT_NO" jdbcType="VARCHAR" property="eventNo" />
+    <result column="CIM_NO" jdbcType="VARCHAR" property="cimNo" />
+    <result column="EVENT_NAME" jdbcType="VARCHAR" property="eventName" />
+    <result column="EVENT_TYPE" jdbcType="NUMERIC" property="eventType" />
+    <result column="IS_PUSH" jdbcType="NUMERIC" property="isPush" />
+  </resultMap>
+  <insert id="insert" parameterType="com.nari.dataquery.entity.AlarmCodeConfig">
+    insert into B_CIM_EVENT_CODE (EVENT_NO, CIM_NO, EVENT_NAME, 
+      EVENT_TYPE, IS_PUSH)
+    values (#{eventNo,jdbcType=VARCHAR}, #{cimNo,jdbcType=VARCHAR}, #{eventName,jdbcType=VARCHAR}, 
+      #{eventType,jdbcType=NUMERIC}, #{isPush,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nari.dataquery.entity.AlarmCodeConfig">
+    insert into B_CIM_EVENT_CODE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eventNo != null">
+        EVENT_NO,
+      </if>
+      <if test="cimNo != null">
+        CIM_NO,
+      </if>
+      <if test="eventName != null">
+        EVENT_NAME,
+      </if>
+      <if test="eventType != null">
+        EVENT_TYPE,
+      </if>
+      <if test="isPush != null">
+        IS_PUSH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eventNo != null">
+        #{eventNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cimNo != null">
+        #{cimNo,jdbcType=VARCHAR},
+      </if>
+      <if test="eventName != null">
+        #{eventName,jdbcType=VARCHAR},
+      </if>
+      <if test="eventType != null">
+        #{eventType,jdbcType=NUMERIC},
+      </if>
+      <if test="isPush != null">
+        #{isPush,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+</mapper>

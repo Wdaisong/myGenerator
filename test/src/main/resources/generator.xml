@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- mybatisGenerator:上下文名称    targetRuntime:环境是MyBatis3.x -->
+    <context id="mybatisGenerator" targetRuntime="MyBatis3">
+        <!--自动生成类时加不加注释 -->
+        <commentGenerator>
+            <!--
+                 suppressAllComments属性值：
+                 true:自动生成实体类、SQL映射文件时没有注释
+                 false:自动生成实体类、SQL映射文件，并附有注释
+            -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!-- 数据库连接信息 -->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/ssm_practice"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>-->
+        <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+                        connectionURL="jdbc:oracle:thin:@//123.156.230.209:1521/sea" userId="sea"
+                        password="seahes3000">
+            <!--针对oracle数据库-->
+            <property name="remarksReporting" value="true"></property>
+        </jdbcConnection>
+        <!--
+            forceBigDecimals属性值：
+               true:把数据表中的DECIMAL和NUMERIC类型， 解析为JAVA代码中的java.math.BigDecimal类型
+               false(默认):把数据表中的DECIMAL和NUMERIC类型， 解析为解析为JAVA代码中的Integer类型
+        -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- targetProject属性值: 实体类的生成位置     targetPackage属性值：实体类所在包的路径 -->
+        <javaModelGenerator
+                targetPackage="com.nari.dataquery.pojo" targetProject=".\src\main\java">
+            <!--
+                trimStrings属性值：
+                true：对数据库的查询结果进行trim（去空格）操作
+                false(默认)：不进行trim操作
+             -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- 生成mapper文件 -->
+        <!-- targetProject属性值:SQL映射文件的生成位置     targetPackage属性值：SQL映射文件所在包的路径 -->
+        <sqlMapGenerator targetPackage="com.nari.dataquery.mapper" targetProject=".\src\main\java">
+        </sqlMapGenerator>
+
+        <!-- 生成动态代理的接口   我这里mapper.xml与接口在同一个包下  -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.nari.dataquery.mapper" targetProject=".\src\main\java">
+        </javaClientGenerator>
+
+        <!-- 指定数据库中的表 -->
+        <table tableName="B_HHU_READ_FAIL_DESC" />
+
+    </context>
+</generatorConfiguration>

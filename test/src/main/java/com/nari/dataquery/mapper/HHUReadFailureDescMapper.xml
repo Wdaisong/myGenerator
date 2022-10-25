@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nari.dataquery.mapper.HHUReadFailureDescMapper">
+  <resultMap id="BaseResultMap" type="com.nari.dataquery.entity.HHUReadFailureDesc">
+    <result column="FAIL_CODE" jdbcType="NUMERIC" property="failCode" />
+    <result column="FAIL_DESC_EN" jdbcType="VARCHAR" property="failDescEn" />
+    <result column="FAIL_DESC_AR" jdbcType="VARCHAR" property="failDescAr" />
+    <result column="NUM_OF_PHOTOS" jdbcType="NUMERIC" property="numOfPhotos" />
+    <result column="REQUIRED_EN" jdbcType="VARCHAR" property="requiredEn" />
+    <result column="REQUIRED_AR" jdbcType="VARCHAR" property="requiredAr" />
+    <result column="REQ_APP_LOADED" jdbcType="NUMERIC" property="reqAppLoaded" />
+    <result column="REMARK_CODE" jdbcType="VARCHAR" property="remarkCode" />
+  </resultMap>
+  <insert id="insert" parameterType="com.nari.dataquery.entity.HHUReadFailureDesc">
+    insert into B_HHU_READ_FAIL_DESC (FAIL_CODE, FAIL_DESC_EN, FAIL_DESC_AR, 
+      NUM_OF_PHOTOS, REQUIRED_EN, REQUIRED_AR, 
+      REQ_APP_LOADED, REMARK_CODE)
+    values (#{failCode,jdbcType=NUMERIC}, #{failDescEn,jdbcType=VARCHAR}, #{failDescAr,jdbcType=VARCHAR}, 
+      #{numOfPhotos,jdbcType=NUMERIC}, #{requiredEn,jdbcType=VARCHAR}, #{requiredAr,jdbcType=VARCHAR}, 
+      #{reqAppLoaded,jdbcType=NUMERIC}, #{remarkCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nari.dataquery.entity.HHUReadFailureDesc">
+    insert into B_HHU_READ_FAIL_DESC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="failCode != null">
+        FAIL_CODE,
+      </if>
+      <if test="failDescEn != null">
+        FAIL_DESC_EN,
+      </if>
+      <if test="failDescAr != null">
+        FAIL_DESC_AR,
+      </if>
+      <if test="numOfPhotos != null">
+        NUM_OF_PHOTOS,
+      </if>
+      <if test="requiredEn != null">
+        REQUIRED_EN,
+      </if>
+      <if test="requiredAr != null">
+        REQUIRED_AR,
+      </if>
+      <if test="reqAppLoaded != null">
+        REQ_APP_LOADED,
+      </if>
+      <if test="remarkCode != null">
+        REMARK_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="failCode != null">
+        #{failCode,jdbcType=NUMERIC},
+      </if>
+      <if test="failDescEn != null">
+        #{failDescEn,jdbcType=VARCHAR},
+      </if>
+      <if test="failDescAr != null">
+        #{failDescAr,jdbcType=VARCHAR},
+      </if>
+      <if test="numOfPhotos != null">
+        #{numOfPhotos,jdbcType=NUMERIC},
+      </if>
+      <if test="requiredEn != null">
+        #{requiredEn,jdbcType=VARCHAR},
+      </if>
+      <if test="requiredAr != null">
+        #{requiredAr,jdbcType=VARCHAR},
+      </if>
+      <if test="reqAppLoaded != null">
+        #{reqAppLoaded,jdbcType=NUMERIC},
+      </if>
+      <if test="remarkCode != null">
+        #{remarkCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

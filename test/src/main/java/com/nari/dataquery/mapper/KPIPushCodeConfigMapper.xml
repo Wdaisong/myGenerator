@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nari.dataquery.mapper.KPIPushCodeConfigMapper">
+  <resultMap id="BaseResultMap" type="com.nari.dataquery.entity.KPIPushCodeConfig">
+    <result column="CIM_CODE" jdbcType="VARCHAR" property="cimCode" />
+    <result column="KPI_NAME" jdbcType="VARCHAR" property="kpiName" />
+    <result column="KPI_TYPE" jdbcType="NUMERIC" property="kpiType" />
+    <result column="KPI_TABLE" jdbcType="VARCHAR" property="kpiTable" />
+    <result column="KPI_FILTER" jdbcType="VARCHAR" property="kpiFilter" />
+    <result column="DCU_CELL_FILTER" jdbcType="VARCHAR" property="dcuCellFilter" />
+    <result column="IS_PUSH" jdbcType="NUMERIC" property="isPush" />
+    <result column="PUSH_PERIOD" jdbcType="NUMERIC" property="pushPeriod" />
+  </resultMap>
+  <insert id="insert" parameterType="com.nari.dataquery.entity.KPIPushCodeConfig">
+    insert into B_KPI_CIM_CODE (CIM_CODE, KPI_NAME, KPI_TYPE, 
+      KPI_TABLE, KPI_FILTER, DCU_CELL_FILTER, 
+      IS_PUSH, PUSH_PERIOD)
+    values (#{cimCode,jdbcType=VARCHAR}, #{kpiName,jdbcType=VARCHAR}, #{kpiType,jdbcType=NUMERIC}, 
+      #{kpiTable,jdbcType=VARCHAR}, #{kpiFilter,jdbcType=VARCHAR}, #{dcuCellFilter,jdbcType=VARCHAR}, 
+      #{isPush,jdbcType=NUMERIC}, #{pushPeriod,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nari.dataquery.entity.KPIPushCodeConfig">
+    insert into B_KPI_CIM_CODE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cimCode != null">
+        CIM_CODE,
+      </if>
+      <if test="kpiName != null">
+        KPI_NAME,
+      </if>
+      <if test="kpiType != null">
+        KPI_TYPE,
+      </if>
+      <if test="kpiTable != null">
+        KPI_TABLE,
+      </if>
+      <if test="kpiFilter != null">
+        KPI_FILTER,
+      </if>
+      <if test="dcuCellFilter != null">
+        DCU_CELL_FILTER,
+      </if>
+      <if test="isPush != null">
+        IS_PUSH,
+      </if>
+      <if test="pushPeriod != null">
+        PUSH_PERIOD,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cimCode != null">
+        #{cimCode,jdbcType=VARCHAR},
+      </if>
+      <if test="kpiName != null">
+        #{kpiName,jdbcType=VARCHAR},
+      </if>
+      <if test="kpiType != null">
+        #{kpiType,jdbcType=NUMERIC},
+      </if>
+      <if test="kpiTable != null">
+        #{kpiTable,jdbcType=VARCHAR},
+      </if>
+      <if test="kpiFilter != null">
+        #{kpiFilter,jdbcType=VARCHAR},
+      </if>
+      <if test="dcuCellFilter != null">
+        #{dcuCellFilter,jdbcType=VARCHAR},
+      </if>
+      <if test="isPush != null">
+        #{isPush,jdbcType=NUMERIC},
+      </if>
+      <if test="pushPeriod != null">
+        #{pushPeriod,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+</mapper>

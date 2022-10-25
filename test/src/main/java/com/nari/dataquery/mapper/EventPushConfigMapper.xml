@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nari.dataquery.mapper.EventPushConfigMapper">
+  <resultMap id="BaseResultMap" type="com.nari.dataquery.entity.EventPushConfig">
+    <id column="EVENT_CODE" jdbcType="VARCHAR" property="eventCode" />
+    <result column="CIM_CODE" jdbcType="VARCHAR" property="cimCode" />
+    <result column="EVENT_NAME" jdbcType="VARCHAR" property="eventName" />
+    <result column="DATA_ITEM" jdbcType="VARCHAR" property="dataItem" />
+    <result column="DATA1_NAME" jdbcType="VARCHAR" property="data1Name" />
+    <result column="DATA2_NAME" jdbcType="VARCHAR" property="data2Name" />
+    <result column="DATA3_NAME" jdbcType="VARCHAR" property="data3Name" />
+    <result column="DATA4_NAME" jdbcType="VARCHAR" property="data4Name" />
+    <result column="DATA5_NAME" jdbcType="VARCHAR" property="data5Name" />
+    <result column="DATA6_NAME" jdbcType="VARCHAR" property="data6Name" />
+    <result column="DATA7_NAME" jdbcType="VARCHAR" property="data7Name" />
+    <result column="DATA8_NAME" jdbcType="VARCHAR" property="data8Name" />
+    <result column="WHETHER_PUBLISH" jdbcType="NUMERIC" property="whetherPublish" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    EVENT_CODE, CIM_CODE, EVENT_NAME, DATA_ITEM, DATA1_NAME, DATA2_NAME, DATA3_NAME, 
+    DATA4_NAME, DATA5_NAME, DATA6_NAME, DATA7_NAME, DATA8_NAME, WHETHER_PUBLISH
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from B_INTERFACE_PUB_CONFIG
+    where EVENT_CODE = #{eventCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from B_INTERFACE_PUB_CONFIG
+    where EVENT_CODE = #{eventCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.nari.dataquery.entity.EventPushConfig">
+    insert into B_INTERFACE_PUB_CONFIG (EVENT_CODE, CIM_CODE, EVENT_NAME, 
+      DATA_ITEM, DATA1_NAME, DATA2_NAME, 
+      DATA3_NAME, DATA4_NAME, DATA5_NAME, 
+      DATA6_NAME, DATA7_NAME, DATA8_NAME, 
+      WHETHER_PUBLISH)
+    values (#{eventCode,jdbcType=VARCHAR}, #{cimCode,jdbcType=VARCHAR}, #{eventName,jdbcType=VARCHAR}, 
+      #{dataItem,jdbcType=VARCHAR}, #{data1Name,jdbcType=VARCHAR}, #{data2Name,jdbcType=VARCHAR}, 
+      #{data3Name,jdbcType=VARCHAR}, #{data4Name,jdbcType=VARCHAR}, #{data5Name,jdbcType=VARCHAR}, 
+      #{data6Name,jdbcType=VARCHAR}, #{data7Name,jdbcType=VARCHAR}, #{data8Name,jdbcType=VARCHAR}, 
+      #{whetherPublish,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nari.dataquery.entity.EventPushConfig">
+    insert into B_INTERFACE_PUB_CONFIG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eventCode != null">
+        EVENT_CODE,
+      </if>
+      <if test="cimCode != null">
+        CIM_CODE,
+      </if>
+      <if test="eventName != null">
+        EVENT_NAME,
+      </if>
+      <if test="dataItem != null">
+        DATA_ITEM,
+      </if>
+      <if test="data1Name != null">
+        DATA1_NAME,
+      </if>
+      <if test="data2Name != null">
+        DATA2_NAME,
+      </if>
+      <if test="data3Name != null">
+        DATA3_NAME,
+      </if>
+      <if test="data4Name != null">
+        DATA4_NAME,
+      </if>
+      <if test="data5Name != null">
+        DATA5_NAME,
+      </if>
+      <if test="data6Name != null">
+        DATA6_NAME,
+      </if>
+      <if test="data7Name != null">
+        DATA7_NAME,
+      </if>
+      <if test="data8Name != null">
+        DATA8_NAME,
+      </if>
+      <if test="whetherPublish != null">
+        WHETHER_PUBLISH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eventCode != null">
+        #{eventCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cimCode != null">
+        #{cimCode,jdbcType=VARCHAR},
+      </if>
+      <if test="eventName != null">
+        #{eventName,jdbcType=VARCHAR},
+      </if>
+      <if test="dataItem != null">
+        #{dataItem,jdbcType=VARCHAR},
+      </if>
+      <if test="data1Name != null">
+        #{data1Name,jdbcType=VARCHAR},
+      </if>
+      <if test="data2Name != null">
+        #{data2Name,jdbcType=VARCHAR},
+      </if>
+      <if test="data3Name != null">
+        #{data3Name,jdbcType=VARCHAR},
+      </if>
+      <if test="data4Name != null">
+        #{data4Name,jdbcType=VARCHAR},
+      </if>
+      <if test="data5Name != null">
+        #{data5Name,jdbcType=VARCHAR},
+      </if>
+      <if test="data6Name != null">
+        #{data6Name,jdbcType=VARCHAR},
+      </if>
+      <if test="data7Name != null">
+        #{data7Name,jdbcType=VARCHAR},
+      </if>
+      <if test="data8Name != null">
+        #{data8Name,jdbcType=VARCHAR},
+      </if>
+      <if test="whetherPublish != null">
+        #{whetherPublish,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nari.dataquery.entity.EventPushConfig">
+    update B_INTERFACE_PUB_CONFIG
+    <set>
+      <if test="cimCode != null">
+        CIM_CODE = #{cimCode,jdbcType=VARCHAR},
+      </if>
+      <if test="eventName != null">
+        EVENT_NAME = #{eventName,jdbcType=VARCHAR},
+      </if>
+      <if test="dataItem != null">
+        DATA_ITEM = #{dataItem,jdbcType=VARCHAR},
+      </if>
+      <if test="data1Name != null">
+        DATA1_NAME = #{data1Name,jdbcType=VARCHAR},
+      </if>
+      <if test="data2Name != null">
+        DATA2_NAME = #{data2Name,jdbcType=VARCHAR},
+      </if>
+      <if test="data3Name != null">
+        DATA3_NAME = #{data3Name,jdbcType=VARCHAR},
+      </if>
+      <if test="data4Name != null">
+        DATA4_NAME = #{data4Name,jdbcType=VARCHAR},
+      </if>
+      <if test="data5Name != null">
+        DATA5_NAME = #{data5Name,jdbcType=VARCHAR},
+      </if>
+      <if test="data6Name != null">
+        DATA6_NAME = #{data6Name,jdbcType=VARCHAR},
+      </if>
+      <if test="data7Name != null">
+        DATA7_NAME = #{data7Name,jdbcType=VARCHAR},
+      </if>
+      <if test="data8Name != null">
+        DATA8_NAME = #{data8Name,jdbcType=VARCHAR},
+      </if>
+      <if test="whetherPublish != null">
+        WHETHER_PUBLISH = #{whetherPublish,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where EVENT_CODE = #{eventCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nari.dataquery.entity.EventPushConfig">
+    update B_INTERFACE_PUB_CONFIG
+    set CIM_CODE = #{cimCode,jdbcType=VARCHAR},
+      EVENT_NAME = #{eventName,jdbcType=VARCHAR},
+      DATA_ITEM = #{dataItem,jdbcType=VARCHAR},
+      DATA1_NAME = #{data1Name,jdbcType=VARCHAR},
+      DATA2_NAME = #{data2Name,jdbcType=VARCHAR},
+      DATA3_NAME = #{data3Name,jdbcType=VARCHAR},
+      DATA4_NAME = #{data4Name,jdbcType=VARCHAR},
+      DATA5_NAME = #{data5Name,jdbcType=VARCHAR},
+      DATA6_NAME = #{data6Name,jdbcType=VARCHAR},
+      DATA7_NAME = #{data7Name,jdbcType=VARCHAR},
+      DATA8_NAME = #{data8Name,jdbcType=VARCHAR},
+      WHETHER_PUBLISH = #{whetherPublish,jdbcType=NUMERIC}
+    where EVENT_CODE = #{eventCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

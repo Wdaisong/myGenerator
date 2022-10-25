@@ -1,0 +1,2 @@
+代码生成器配置是：generatorConfig(oracle).xml
+启动类为：CustomCommentGenerator

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <classPathEntry
+            location="C:\Users\Administrator\.m2\repository\com\oracle\ojdbc6\11.1.0.7.0\ojdbc6-11.1.0.7.0.jar"/>
+    <context id="context1">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <commentGenerator type="com.**nks.e**s.CustomCommentGenerator">
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection connectionURL="jdbc:oracle:thin:@//1**.20.19.2**:1521/p**y"
+                        driverClass="oracle.jdbc.driver.OracleDriver" password="***#123"
+                        userId="**s">
+            <!-- 针对oracle数据库 -->
+            <property name="remarksReporting" value="true"></property>
+        </jdbcConnection>
+
+
+        <javaModelGenerator targetPackage="com.**nks.**ps.pas.tmp"
+                            targetProject="src\main\java\com\**links\**ps\pas\tmp"/>
+
+        <sqlMapGenerator targetPackage="com.**links.**ps.pas.tmp"
+                         targetProject="src\main\java\com\**links\**ps\pas\tmp"/>
+
+        <javaClientGenerator targetPackage="com.**links.**ps.pas.tmp"
+                             targetProject="src\main\java\com\**links\**ps\pas\tmp" type="XMLMAPPER"/>
+
+        <!--        table标签中：
+
+                domainObjectName：生成的类名，不填则未数据库的表名；
+
+                enableInsert：是否生成新增的接口（会生成一个全部新增和一个可选新增），默认为true；
+
+                enableSelectByPrimaryKey：是否生成根据主键查询的接口，默认为true；
+
+                enableUpdateByPrimaryKey：是否生成根据主键更新的接口（会生成一个全部更新和一个可选更新），默认为true；
+
+                enableDeleteByPrimaryKey：是否生成根据主键删除的接口，默认为true；
+
+                enableCountByExample：是否生成根据example（自定义条件）查询总数的接口，默认为true；
+
+                enableUpdateByExample：是否生成根据example（自定义条件）修改数据的接口，默认为true；
+
+                enableDeleteByExample：是否生成根据example（自定义条件）删除数据的接口，默认为true；
+
+                enableSelectByExample：是否生成根据example（自定义条件）查询数据的接口，默认为true；
+
+                selectByExampleQueryId：是否生成根据example查询ID查询数据的接口，默认为true。-->
+        <table tableName="CUM_WITHDRAW_COUNT_RECORD" domainObjectName="WithdrawCountRecord"
+               enableInsert="false" enableSelectByPrimaryKey="false"
+               enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="ture"
+               selectByExampleQueryId="false">
+        </table>
+    </context>
+</generatorConfiguration>
